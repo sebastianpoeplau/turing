@@ -1,2 +1,3 @@
-# turing
-Turing machine simulator written in Haskell
+# Turing
+This package provides some basic functions and types to simulate a Turing
+machine. Documentation to be pushed to Hackage soon...
