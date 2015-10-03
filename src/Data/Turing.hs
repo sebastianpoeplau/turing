@@ -3,6 +3,19 @@
 -- definitions of Turing machines in use - ours has the machine write /and/
 -- move in each step of execution. In addition, we allow a special movement
 -- 'DontMove' that results in just a write operation.
+--
+-- You just define a transition function using suitable state and input types and run it:
+--
+-- >>> :{
+-- let
+--     f (q, Just 0) = Just (q, Just 0, MoveRight)
+--     f ("even", Just 1) = Just ("odd", Just 0, MoveRight)
+--     f ("odd", Just 1) = Just ("even", Just 0, MoveRight)
+--     f _ = Nothing
+--     t = mkTuringMachine f "even" ["even"] -- a machine that decides parity
+-- in run t [0, 0, 1, 1, 1]
+-- :}
+-- Reject
 
 module Data.Turing (
     -- * The Turing machine
