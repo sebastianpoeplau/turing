@@ -6,15 +6,17 @@
 --
 -- You just define a transition function using suitable state and input types and run it:
 --
--- >>> :{
--- let
---     f (q, Just 0) = Just (q, Just 0, MoveRight)
---     f ("even", Just 1) = Just ("odd", Just 0, MoveRight)
---     f ("odd", Just 1) = Just ("even", Just 0, MoveRight)
---     f _ = Nothing
---     t = mkTuringMachine f "even" ["even"] -- a machine that decides parity
--- in run t [0, 0, 1, 1, 1]
--- :}
+-- @
+-- turingMachine =
+--   let
+--       f (q, Just 0) = Just (q, Just 0, MoveRight)
+--       f ("even", Just 1) = Just ("odd", Just 0, MoveRight)
+--       f ("odd", Just 1) = Just ("even", Just 0, MoveRight)
+--       f _ = Nothing
+--       t = mkTuringMachine f "even" ["even"] -- a machine that decides parity
+--   in run t [0, 0, 1, 1, 1]
+-- @
+-- >>> turingMachine
 -- Reject
 
 module Data.Turing (
